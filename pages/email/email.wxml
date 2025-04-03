@@ -1,0 +1,47 @@
+<view class="email_top">
+  <button size="mini" bind:tap="menuDisplay" data-status="{{true}}">收件箱</button>
+  <button size="mini">待 办</button>
+  <button size="mini">设 置</button>
+</view>
+
+<view wx:if="{{menuShow}}" class="mask" bind:tap="menuDisplay" data-status="{{false}}" catch:touchmove="preventScroll" bind:touchend="menuDisplay"></view>
+<view wx:if="{{menuShow}}" class="email_menu">
+  <view>lchenjianwenh@163.com</view>
+  <button>收件箱</button>
+  <button>草稿箱</button>
+  <button>已发送</button>
+  <button>已删除</button>
+</view>
+<scroll-view class="email_body">
+  <!-- <view class="email_count" bind:tap="WatchEmail" wx:for="{{[1,2,3]}}" wx:for-item="item" data-emailId="{{item}}">
+    <view class="left">
+      陈
+    </view>
+    <view class="right">
+      <view class="email_user_name">
+        JetBrains Account
+      </view>
+      <view class="email_title"> Renew your JetBrains Educational Pack </view>
+      <view class="email_lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, magni!</view>
+    </view>
+    <view class="email_warning"></view>
+  </view> -->
+  <block wx:for="{{email}}" wx:key="emailId">
+    <view class="email_count" bind:tap="WatchEmail" data-emailId="{{item.emailId}}">
+      <view class="left">
+        {{item.emailFrom[0]}}
+      </view>
+      <view class="right">
+        <view class="email_user_name">
+          {{item.emailFrom}}
+        </view>
+        <view class="email_title">
+          {{item.emailSubject}}
+        </view>
+        <view class="email_lorem">
+          <rich-text nodes="{{item.emailContent}}"/>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>

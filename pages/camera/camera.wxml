@@ -1,0 +1,7 @@
+<!--pages/camera/camera.wxml-->
+<view class="container">
+<image src="{{faceImg}}" wx:if="{{faceImg}}" class="faceImg" mode="widthFix"/>
+  <camera class="camera" device-position="front"  flash="off"></camera>
+</view>
+
+<button class="takePhoto" type="primary" bindtap="takePhoto">{{currentTime}}</button>

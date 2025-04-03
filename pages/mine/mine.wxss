@@ -1,0 +1,72 @@
+/* pages/mine/mine.wxss */
+.mine_title_top{
+  display: flex;
+  align-items: center; /* 垂直居中 */
+  justify-content: space-between;
+  line-height: 100%;
+  margin-bottom: 10px;
+}
+
+.mine_title_top text{
+  font-size: larger;
+}
+
+.mine_title{
+  height: 100px;
+  border-bottom: 0.8px solid gainsboro;
+  padding: 20px 20px;
+}
+
+.mine_setting{
+  border: 0.8px solid gainsboro;
+  font-weight: normal;
+  font-size: 12px;
+  display: inline-block;
+  padding: 3px 10px;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  transition: all 0.3s;
+  padding: 0px 10px;
+  border-radius: 10px;
+}
+.mine_setting:active {
+  background: rgba(56,117,198,0.05);
+  transform: scale(0.95);
+}
+
+.mine_touxiang{
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.mine_body{
+  padding: 20px;
+  display: grid;
+  gap: 10px;
+}
+
+.createOrAdd{
+  background-color: #3875c6;
+  color: white;
+  height: 55px;
+  line-height: 55px;
+  border-radius: 5px;
+}
+
+.createOrAdd:active {
+  background-color: rgba(56, 117, 198, 0.7);
+}
+
+.addSign{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0px 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  text-align: center;
+  line-height: 40px;
+}

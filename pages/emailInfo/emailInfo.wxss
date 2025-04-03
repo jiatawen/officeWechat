@@ -1,0 +1,60 @@
+/* pages/emailInfo/emailInfo.wxss */
+.email_title{
+  margin-bottom: 10px;
+  font-size: 25px;
+  display: flex;
+  margin: 10px;
+}
+
+.email_title text{
+  overflow: hidden;
+  height: 30px;
+}
+
+.email_title button{
+  flex: 1;
+  margin-right: 10px;
+  background-color: #3875c6;
+  color: white;
+  border-radius: 5px;
+  max-width: 100px;
+}
+
+.email_title button:active{
+  background-color: rgba(56, 117, 198, 0.7);
+}
+
+.email_count {
+  display: flex;
+  align-items: center; /* 垂直居中 */
+  gap: 20rpx; /* 元素间距 */
+  padding: 10px 5px;
+  background: #fff;
+  border-bottom: 0.8px solid gainsboro;
+}
+
+.left {
+  width: 45px; /* 固定宽度 */
+  height: 45px;
+  background: #f3f7fe;
+  color: #3875c6;
+  margin: 0px 5px 0px 10px;
+  border-radius: 22.5px;
+  text-align: center;
+  line-height: 45px;
+}
+
+.right {
+  flex: 1; /* 自动撑满剩余空间 */
+  height: 50px;
+  overflow: hidden;
+}
+
+.email_user_name{
+  font-size: 20px;
+}
+
+.email_address{
+  font-size: 13px;
+  color: gray;
+}

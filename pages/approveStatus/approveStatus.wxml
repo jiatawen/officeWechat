@@ -1,0 +1,16 @@
+<!--pages/approveStatus/approveStatus.wxml-->
+<view class="mine_body">
+  <block wx:for="{{list}}" wx:key="id">
+    <view class="createOrAdd">
+    <view class="addSign">
+      <block wx:if="{{item.status}}">
+        √
+      </block>
+      <block wx:if="{{!item.status}}">
+        ×
+      </block>
+    </view>
+    {{type[item.typeIndex]}}:{{item.startTime}}至{{item.endTime}}
+  </view>
+  </block>
+</view>

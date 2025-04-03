@@ -1,0 +1,46 @@
+<!--pages/reason/reason.wxml-->
+<!-- 开启页面级滚动 -->
+<view class="page-container">
+      <view class="column-item" wx:if="{{status==0}}">
+        <picker name="gender" value="{{reason_type_Index}}" range="{{reason_type}}" bindchange="onReasonTypeChange">
+          <view class="form-item" hover-class="item-hover" aria-role="combobox">
+            <text class="label">请假类型：</text>
+            <view class="picker-content">
+              <text style="width: 100px;" class="picker-text">{{reason_type[reason_type_Index] || '请选择'}}</text>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="column-item" class="column-time">
+        <!-- 日期选择优化 -->
+        <picker name="start_date" mode="date" value="{{date.start_date}}" bindchange="onStartDateChange">
+          <view class="form-item" hover-class="item-hover" aria-role="datepicker">
+            <text class="label">开始日期</text>
+            <view class="picker-content">
+              <text class="picker-text">{{date.start_date}}</text>
+            </view>
+          </view>
+        </picker>
+        <!-- 日期选择优化 -->
+        <picker name="end_date" mode="date" value="{{date.end_date}}" bindchange="onEndDateChange" start="{{date.start_date}}">
+          <view class="form-item" hover-class="item-hover" aria-role="datepicker">
+            <text class="label">结束日期</text>
+            <view class="picker-content">
+              <text class="picker-text">{{date.end_date}}</text>
+            </view>
+          </view>
+        </picker>
+
+      </view>
+      <view class="column-item">
+        <view class="form-item" hover-class="item-hover" aria-role="combobox">
+          <view>
+            {{type[status]}}事由：
+          </view>
+        </view>
+        <textarea bindinput="onReasonChange" class="text_input" placeholder="请输入{{type[status]}}事由" value="{{reason}}"/>
+      </view>
+      <view>
+      <button class="sub_btn">提 交</button>
+      </view>
+</view>

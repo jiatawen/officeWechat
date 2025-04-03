@@ -1,0 +1,29 @@
+.container {
+  position: relative;
+  padding: 200rpx 0;
+}
+.title{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding-top: 100rpx;
+  font-size: 36rpx;
+}
+.camera{
+  width: 600rpx;
+  height: 600rpx;
+  border-radius: 50% 50%;
+  margin: 0 auto;
+}
+.faceImg{
+  width: 600rpx;
+  height: 600rpx;
+  border-radius: 50% 50%;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 999;
+}
+
+.takePhoto{
+  background-color: #3875c6;
+}

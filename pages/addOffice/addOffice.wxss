@@ -1,0 +1,85 @@
+/* pages/addOffice/addOffice.wxss */
+/* 容器样式 */
+.search-container {
+  padding: 15rpx 20rpx;
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+}
+ 
+/* 搜索框区域 */
+.search-box {
+  flex: 1;
+  height: 70rpx;
+  background: #fff;
+  border-radius: 35rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+}
+ 
+/* 输入框样式 */
+.search-input {
+  flex: 1;
+  font-size: 28rpx;
+  margin-left: 10rpx;
+}
+ 
+/* 图标样式 */
+.search-icon {
+  color: #999;
+}
+.clear-icon {
+  margin-left: 10rpx;
+  padding: 5rpx;
+  background: #eee;
+  border-radius: 50%;
+}
+ 
+/* 搜索按钮 */
+.search-btn {
+  width: 120rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #333;
+  margin-left: 20rpx;
+}
+ 
+/* 占位符样式 */
+.placeholder-style {
+  color: #ccc;
+}
+
+.mine_body{
+  padding: 20px;
+  display: grid;
+  gap: 10px;
+}
+
+.createOrAdd{
+  background-color: #3875c6;
+  color: white;
+  height: 55px;
+  line-height: 55px;
+  border-radius: 5px;
+}
+
+.createOrAdd:active {
+  background-color: rgba(56, 117, 198, 0.7);
+}
+
+.addSign{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0px 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.createOffice{
+  padding: 20px;
+  margin-top: 370px;
+}

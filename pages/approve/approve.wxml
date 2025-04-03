@@ -1,0 +1,33 @@
+<!--pages/approve/approve.wxml-->
+<view class="body">
+  <view class="mine">
+    我发起的
+    <view class="tool_head">
+      <button bind:tap="goToReason" data-status="0">
+        <image src="/image/approve/请假.svg" mode="" />请假
+      </button>
+      <button bind:tap="goToReason" data-status="1">
+        <image src="/image/approve/出差.svg" mode="" />出差
+      </button>
+      <button bind:tap="goToReason" data-status="2">
+        <image src="/image/approve/加班.svg" mode="" />加班
+      </button>
+      <button bind:tap="goToReason" data-status="3">
+        <image src="/image/approve/状态.svg" mode="" />状态
+      </button>
+    </view>
+  </view>
+  <view class="mine">
+  我审批的
+  <view class="tool_head">
+    <button bind:tap="goToApproveControl" data-status="0" style="width: 100px;">
+        <image src="/image/approve/待办.svg" mode="" />
+        待处理
+      </button>
+      <button bind:tap="goToApproveControl" data-status="1" style="width: 100px;">
+        <image src="/image/approve/通过.svg" mode="" />
+        已处理
+      </button>
+  </view>
+  </view>
+</view>

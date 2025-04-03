@@ -1,0 +1,44 @@
+{
+  "entryPagePath": "pages/email/email",
+  "pages": [
+    "pages/emailInfo/emailInfo",
+    "pages/tools/tools",
+    "pages/email/email",
+    "pages/mine/mine",
+    "pages/camera/camera",
+    "pages/editProfile/editProfile",
+    "pages/addOffice/addOffice",
+    "pages/approve/approve",
+    "pages/reason/reason",
+    "pages/approveStatus/approveStatus",
+    "pages/approveControl/approveControl"
+  ],
+  "window": {
+    "navigationBarTitleText": "万司通",
+    "navigationBarBackgroundColor": "#3875c6",
+    "backgroundColor": "#efefef",
+    "backgroundTextStyle": "dark",
+    "onReachBottomDistance": 50
+  },
+  "tabBar": {
+    "selectedColor": "#3875c6",
+    "color": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/email/email",
+        "text": "邮 件"
+      },
+      {
+        "pagePath": "pages/tools/tools",
+        "text": "工作台"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我 的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

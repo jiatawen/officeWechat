@@ -1,0 +1,22 @@
+/* pages/tools/tools.wxss */
+
+.page{
+  background-color: whitesmoke;
+}
+
+.tool_head{
+  margin-bottom: 5px;
+  display:flex;
+  height: 100px;
+}
+
+.tool_head button{
+  height: 100px;
+  border-radius: 0px;
+}
+
+button image{
+  width: 70%;
+  height: 70%;
+  margin-bottom: -10px;
+}

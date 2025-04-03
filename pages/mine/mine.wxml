@@ -1,0 +1,27 @@
+<!--pages/mine/mine.wxml-->
+<view class="mine_title">
+  <view class="mine_title_top">
+    <text>
+      {{userName}}
+    </text>
+    <button style="padding:0px;margin:0px;width: auto;" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+      <image class="mine_touxiang" src="{{avatarUrl}}" mode="aspectFill" />
+    </button>
+  </view>
+  <button class="mine_setting" style="margin-left:0px;" bind:tap="editProfile">编辑个人资料</button>
+</view>
+
+<view class="mine_body">
+  <view class="createOrAdd">
+    <view class="addSign">
+      🦜
+    </view>
+    xxx企业
+  </view>
+  <view class="createOrAdd" bind:tap="addOffice">
+    <view class="addSign">
+      +
+    </view>
+    创建或加入企业
+  </view>
+</view>
