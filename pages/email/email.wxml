@@ -1,18 +1,36 @@
-<view class="email_top">
-  <button size="mini" bind:tap="menuDisplay" data-status="{{true}}">收件箱</button>
-  <button size="mini">待 办</button>
-  <button size="mini">设 置</button>
-</view>
+<block wx:if="{{showRegister!=true}}">
+  <view class="email_top">
+    <button size="mini" bind:tap="menuDisplay" data-status="{{true}}">收件箱</button>
+    <button size="mini">待 办</button>
+    <button size="mini" bind:tap="menuSetting">设 置</button>
+  </view>
+</block>
 
-<view wx:if="{{menuShow}}" class="mask" bind:tap="menuDisplay" data-status="{{false}}" catch:touchmove="preventScroll" bind:touchend="menuDisplay"></view>
+<view wx:if="{{menuShow}}" class="mask" bind:tap="menuDisplay" data-status="{{false}}" catch:touchmove="preventScroll"
+  bind:touchend="menuDisplay"></view>
+
 <view wx:if="{{menuShow}}" class="email_menu">
-  <view>lchenjianwenh@163.com</view>
+  <view>{{email[0].email}}</view>
   <button>收件箱</button>
   <button>草稿箱</button>
   <button>已发送</button>
   <button>已删除</button>
 </view>
 <scroll-view class="email_body">
+  <block wx:if="{{showRegister==true}}">
+    <view class="register">
+      <image src="/image/email/邮件.svg" mode="" style="width: 100px;height: 100px;" />
+      <text>
+        添加你的工作邮件
+        让工作消息集于一处
+      </text>
+      <view class="input">
+        <input type="email" value="{{email}}" name="" id="" placeholder="请输入邮箱" bindinput="inputEmail"/>
+        <input type="password" value="{{emailPassword}}" name="" id="" placeholder="请输入密码" bindinput="inputPassword"/>
+        <button type="submit" bind:tap="setEmail">添 加</button>
+      </view>
+    </view>
+  </block>
   <!-- <view class="email_count" bind:tap="WatchEmail" wx:for="{{[1,2,3]}}" wx:for-item="item" data-emailId="{{item}}">
     <view class="left">
       陈
@@ -39,7 +57,7 @@
           {{item.emailSubject}}
         </view>
         <view class="email_lorem">
-          <rich-text nodes="{{item.emailContent}}"/>
+          <rich-text nodes="{{item.emailContent}}" />
         </view>
       </view>
     </view>

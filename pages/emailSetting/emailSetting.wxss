@@ -1,0 +1,23 @@
+/* pages/emailSetting/emailSetting.wxss */
+.mine{
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.body{
+  height: 99vh;
+  background-color: #f5f6fa;
+  padding: 1vh;
+}
+
+.mine:not(:last-child){
+  margin-bottom: 10px;
+}
+
+.mine:active{
+  background: rgba(56,117,198,0.2);
+}

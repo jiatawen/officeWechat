@@ -25,7 +25,6 @@ Page({
         emailId: options.emailid
       },
       success:function(e){
-        console.log(e)
         that.setData({
           email:e.data.data
         })

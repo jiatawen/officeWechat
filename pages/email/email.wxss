@@ -6,6 +6,12 @@
   background: #fff;
   border-bottom: 0.8px solid gainsboro;
 }
+
+.input button{
+  background-color: #3875c6;
+  color: white;
+}
+
 /* 标题栏固定 */
 .email_top {
   position: fixed;
@@ -161,4 +167,25 @@ scroll-view {
  
 .email_count:active,button:active {
   background: rgba(56,117,198,0.2);
+}
+
+.register{
+  padding: 15px;
+  font-size: 20px;
+}
+
+.register image{
+  margin-bottom: -20px;
+  margin-left: -13px;
+}
+
+.register .input{
+  margin-top: 30px;
+  justify-content: space-between;
+}
+
+.input input:not(:last-child){
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 0.8px solid #a4a4a4;
 }

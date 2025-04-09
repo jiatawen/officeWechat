@@ -14,4 +14,6 @@
     <view class="email_address"> 收件箱{{email.emailTo}} </view>
   </view>
 </view>
-<rich-text space='emsp' mode='compat' nodes="{{email.emailContent}}" />
+<view style="width: 100%;">
+  <rich-text space='emsp' mode='compat' nodes="{{email.emailContent}}" />
+</view>

@@ -1,0 +1,10 @@
+<!--pages/emailSetting/emailSetting.wxml-->
+<view class="body">
+  <view class="mine">
+    <text>账户</text>
+    <text style="color: gray;">{{email}} ></text>
+  </view>
+  <view class="mine" style="justify-content: center;" bind:tap="clearMail">
+    <text style="color: red;">删除账户</text>
+  </view>
+</view>

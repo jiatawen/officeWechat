@@ -100,10 +100,11 @@ Page({
           faceImg: res.tempImagePath
         })
         wx.uploadFile({
-          url: 'http://127.0.0.1:8081/face',
+          url: 'https://cjw.sa1.tunnelfrp.com/user/checkPhoto',
           filePath:res.tempImagePath,
-          formData:{fileName: 'photoTest.png'},
+          formData:{fileName: 'photo.png'},
           name:'face',
+          header:{token:getApp().globalData.token},
           success:function(res){
             console.log(res)
           },

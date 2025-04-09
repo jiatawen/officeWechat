@@ -11,7 +11,8 @@
     "pages/approve/approve",
     "pages/reason/reason",
     "pages/approveStatus/approveStatus",
-    "pages/approveControl/approveControl"
+    "pages/approveControl/approveControl",
+    "pages/emailSetting/emailSetting"
   ],
   "window": {
     "navigationBarTitleText": "万司通",

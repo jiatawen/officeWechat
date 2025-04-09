@@ -9,7 +9,10 @@ Page({
     canIUseGetUserProfile:true,
     avatarUrl:null,
     email:[],
-    token:''
+    token:'',
+    showRegister:'false',
+    userEmail:'',
+    emailPassword:''
   },
   preventScroll(e){
   },
@@ -37,6 +40,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.showEmails()
+  },
+  showEmails(){
+    wx.showLoading({
+      title: '获取邮件',
+    })
     const app = getApp();
     this.setData({
       token:app.globalData.token
@@ -49,13 +58,26 @@ Page({
         header:{token:app.globalData.token},
         success:function(e){
           console.log(e);
-          that.setData({
-            email:[...e.data.data]
+          if(e.data.code == -1){
+            that.setData({
+              showRegister:true
+            })
+          }else{
+            that.setData({
+              email:[...e.data.data]
+            })
+          }
+          wx.hideLoading()
+        },
+        fail:function(){
+          wx.hideLoading()
+          wx.showToast({
+            title: '获取邮件错误',
+            icon:'error'
           })
         }
       })
     },2000)
-
   },
 
   /**
@@ -120,5 +142,41 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+  menuSetting(){
+    wx.navigateTo({
+      url: '/pages/emailSetting/emailSetting?email='+this.data.email[0].email,
+    })
+  },
+  inputEmail(e){
+    console.log(e.detail.value)
+    this.setData({
+      userEmail:e.detail.value
+    })
+  },
+  inputPassword(e){
+    this.setData({emailPassword:e.detail.value})
+  },
+  setEmail(){
+    wx.showLoading({
+      title: '提交中',
+      mask:true
+    })
+    const that = this;
+    wx.request({
+      url: 'https://cjw.sa1.tunnelfrp.com/email/setEmail',
+      header:{token:getApp().globalData.token},
+      data:{
+        userEmail:this.data.userEmail,
+        userEmailPassword:this.data.emailPassword
+      },
+      success:function(e){
+        wx.hideLoading()
+        that.setData({
+          showRegister:false,
+        })
+        that.showEmails();
+      }
+    })
   }
 })
