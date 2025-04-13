@@ -1,0 +1,18 @@
+<!--pages/registerCompany/registerCompany.wxml-->
+<scroll-view class="container" scroll-y enhanced>
+  <form bindsubmit="formSubmit" report-submit>
+    <!-- 动态数据绑定模块 -->
+    <view class="form-item" hover-class="item-hover">
+      <text class="label">公司名称</text>
+      <input data-key="name" name="nickname" model:value="{{name}}" bindinput="bindKeyInput" placeholder-class="placeholder" placeholder="2-16位字符" maxlength="16" aria-label="用户昵称输入框" />
+    </view>
+    <!-- 新增联系信息 -->
+    <view class="form-item">
+      <text class="label">公司地址</text>
+      <input data-key="address" name="address" model:value="{{address}}" bindinput="bindKeyInput" placeholder-class="placeholder" placeholder="公司地址" aria-label="居住地址输入框" />
+    </view>
+    <button form-type="submit" class="submit-btn" hover-class="btn-hover" aria-labelledby="submitLabel">
+      <text id="submitLabel">创建公司</text>
+    </button>
+  </form>
+</scroll-view>

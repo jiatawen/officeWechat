@@ -1,5 +1,5 @@
 {
-  "entryPagePath": "pages/email/email",
+  "entryPagePath": "pages/tools/tools",
   "pages": [
     "pages/emailInfo/emailInfo",
     "pages/tools/tools",
@@ -12,7 +12,8 @@
     "pages/reason/reason",
     "pages/approveStatus/approveStatus",
     "pages/approveControl/approveControl",
-    "pages/emailSetting/emailSetting"
+    "pages/emailSetting/emailSetting",
+    "pages/registerCompany/registerCompany"
   ],
   "window": {
     "navigationBarTitleText": "万司通",

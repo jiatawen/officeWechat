@@ -30,7 +30,6 @@ Page({
    * @param e
    */
   menuDisplay(e){
-    console.log(e)
     this.setData({
       menuShow: e.target.dataset.status
     })
@@ -57,7 +56,6 @@ Page({
         method:"GET",
         header:{token:app.globalData.token},
         success:function(e){
-          console.log(e);
           if(e.data.code == -1){
             that.setData({
               showRegister:true
@@ -121,7 +119,6 @@ Page({
         method:"GET",
         header:{token:getApp().globalData.token},
         success:function(e){
-          console.log(e);
           that.setData({
             email:[...e.data.data]
           })
@@ -149,7 +146,6 @@ Page({
     })
   },
   inputEmail(e){
-    console.log(e.detail.value)
     this.setData({
       userEmail:e.detail.value
     })

@@ -100,7 +100,7 @@ Page({
           faceImg: res.tempImagePath
         })
         wx.uploadFile({
-          url: 'https://cjw.sa1.tunnelfrp.com/user/checkPhoto',
+          url: 'https://cjw.sa1.tunnelfrp.com/user/checkPhoto', 
           filePath:res.tempImagePath,
           formData:{fileName: 'photo.png'},
           name:'face',

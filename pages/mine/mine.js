@@ -6,27 +6,43 @@ Page({
    */
   data: {
     avatarUrl: null,
-    token:'',
-    userName:''
+    userName:'',
+    showAdd:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    
-    const app = getApp();
-    this.setData({
-      token:app.globalData.token
+    let that = this;
+    this.downloadImage();
+    wx.request({
+      url: 'https://cjw.sa1.tunnelfrp.com/user/getUser',
+      method:'GET',
+      header:{token:getApp().globalData.token},
+      success:function(e){
+        let user = e.data.data
+        that.setData({
+          userName:user.userName
+        })
+      }
+    })
+    //获取企业信息
+    wx.request({
+      url: 'https://cjw.sa1.tunnelfrp.com/company/getCompany',
+      method:'GET',
+      header:{token:getApp().globalData.token},
+      success:function(e){
+        console.log(e)
+      }
     })
   },
   downloadImage(){
     let that = this;
     wx.downloadFile({
       url: 'https://cjw.sa1.tunnelfrp.com/user/getAvatarImg',
-      header:{token:this.data.token},
+      header:{token:getApp().globalData.token},
       success:function(e){
-        console.log(e)
         that.setData({
           avatarUrl:e.tempFilePath
         })
@@ -45,20 +61,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    let that = this;
-    this.downloadImage();
-    wx.request({
-      url: 'https://cjw.sa1.tunnelfrp.com/user/getUser',
-      method:'GET',
-      header:{token:this.data.token},
-      success:function(e){
-        let user = e.data.data
-        console.log(user)
-        that.setData({
-          userName:user.userName
-        })
-      }
-    })
+    
   },
 
   /**
@@ -107,10 +110,9 @@ Page({
       name: 'file',
       url: 'https://cjw.sa1.tunnelfrp.com/user/upAvatarImg',
       header:{
-        token:this.data.token
+        token:getApp().globalData.token
       },
       success:function(e){
-        console.log(e)
       }
     })
   },

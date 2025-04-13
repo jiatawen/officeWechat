@@ -67,6 +67,8 @@ Page({
    * 创建企业
    */
   createOffice(){
-    
+    wx.navigateTo({
+      url: '/pages/registerCompany/registerCompany',
+    })
   }
 })
