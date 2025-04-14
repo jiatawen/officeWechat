@@ -88,9 +88,10 @@ Page({
       companyAddress:this.data.address
     },
     success:function(e){
-      console.log(e)
       wx.hideLoading();
-      wx.navigateBack();
+      wx.navigateBack({
+        delta:2
+      });
     },
     fail:function(e){
       wx.hideLoading();

@@ -5,9 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    avatarUrl: null,
-    userName:'',
-    showAdd:false
+    avatarUrl: '/image/头像.svg',
+    userName: '',
+    showAdd: true,
+    companyName: '',
+    companyId: ''
   },
 
   /**
@@ -18,33 +20,50 @@ Page({
     this.downloadImage();
     wx.request({
       url: 'https://cjw.sa1.tunnelfrp.com/user/getUser',
-      method:'GET',
-      header:{token:getApp().globalData.token},
-      success:function(e){
+      method: 'GET',
+      header: {
+        token: getApp().globalData.token
+      },
+      success: function (e) {
         let user = e.data.data
         that.setData({
-          userName:user.userName
+          userName: user.userName
         })
       }
     })
     //获取企业信息
     wx.request({
       url: 'https://cjw.sa1.tunnelfrp.com/company/getCompany',
-      method:'GET',
-      header:{token:getApp().globalData.token},
-      success:function(e){
+      method: 'GET',
+      header: {
+        token: getApp().globalData.token
+      },
+      success: function (e) {
         console.log(e)
+        if (e.data.code == 0) {
+          that.setData({
+            showAdd: false,
+            companyName: e.data.data.companyName,
+            companyId: e.data.data.companyId
+          })
+        } else if (e.data.code == -1) {
+          that.setData({
+            showAdd: true
+          })
+        }
       }
     })
   },
-  downloadImage(){
+  downloadImage() {
     let that = this;
     wx.downloadFile({
       url: 'https://cjw.sa1.tunnelfrp.com/user/getAvatarImg',
-      header:{token:getApp().globalData.token},
-      success:function(e){
+      header: {
+        token: getApp().globalData.token
+      },
+      success: function (e) {
         that.setData({
-          avatarUrl:e.tempFilePath
+          avatarUrl: e.tempFilePath
         })
       }
     })
@@ -61,7 +80,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    
+
   },
 
   /**
@@ -109,11 +128,10 @@ Page({
       filePath: this.data.avatarUrl,
       name: 'file',
       url: 'https://cjw.sa1.tunnelfrp.com/user/upAvatarImg',
-      header:{
-        token:getApp().globalData.token
+      header: {
+        token: getApp().globalData.token
       },
-      success:function(e){
-      }
+      success: function (e) {}
     })
   },
   /**
@@ -130,6 +148,12 @@ Page({
   addOffice() {
     wx.navigateTo({
       url: '/pages/addOffice/addOffice',
+    })
+  },
+  toCompany(){
+    let that = this;
+    wx.navigateTo({
+      url: '/pages/company/company?companyId='+this.data.companyId+'&companyName='+this.data.companyName,
     })
   }
 })

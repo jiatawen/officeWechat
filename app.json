@@ -13,7 +13,9 @@
     "pages/approveStatus/approveStatus",
     "pages/approveControl/approveControl",
     "pages/emailSetting/emailSetting",
-    "pages/registerCompany/registerCompany"
+    "pages/registerCompany/registerCompany",
+    "pages/company/company",
+    "pages/companySetting/user/user"
   ],
   "window": {
     "navigationBarTitleText": "万司通",

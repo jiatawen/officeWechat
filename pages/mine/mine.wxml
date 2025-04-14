@@ -12,13 +12,13 @@
 </view>
 
 <view class="mine_body">
-  <view class="createOrAdd">
+  <view class="createOrAdd" wx:if="{{!showAdd}}" bind:tap="toCompany">
     <view class="addSign">
       🦜
     </view>
-    xxx企业
+    {{companyName}}
   </view>
-  <view class="createOrAdd" bind:tap="addOffice">
+  <view wx:if="{{showAdd}}" class="createOrAdd" bind:tap="addOffice">
     <view class="addSign">
       +
     </view>

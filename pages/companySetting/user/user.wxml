@@ -1,0 +1,16 @@
+<!--pages/companySetting/clock/clock.wxml-->
+<scroll-view class="background">
+  <view class="user">
+    <view class="name">姓名：Lorem ipsum</view>
+    <view class="message">
+      <view class="position">
+        岗位：BOSS
+      </view>
+      <view class="time">
+        <text>上班时间：07：00</text>
+        <text>上班时间：07：00</text>
+      </view>
+        <image src="/image/tools/设置.svg"/>
+    </view>
+  </view>
+</scroll-view>

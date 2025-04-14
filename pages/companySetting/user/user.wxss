@@ -1,0 +1,42 @@
+/* pages/companySetting/clock/clock.wxss */
+.background{
+  background-color: #f5f6fa;
+  min-height: 96vh;
+  padding: 2vh;
+}
+
+.user{
+  background-color: white;
+  padding: 4px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+
+.message {
+  display: flex;
+}
+
+.name{
+  border-bottom: rgb(196, 196, 196) 1px solid;
+}
+
+.time text{
+  display: block;
+  margin-top: 3px;
+}
+
+.time{
+  margin-right: 10px;
+  width: 150px;
+}
+
+.position{
+  margin-top: 3px;
+  margin-right: 10px;
+  width: 150px;
+}
+
+image{
+  height: 50px;
+  width: 50px;
+}

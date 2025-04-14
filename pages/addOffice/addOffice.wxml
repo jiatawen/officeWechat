@@ -1,49 +1,27 @@
 <!--pages/addOffice/addOffice.wxml-->
-<!-- 搜索栏容器 -->
-<view class="search-container">
-  <!-- 搜索输入区域 -->
-  <view class="search-box">
-    <icon class="search-icon" type="search" size="16"></icon>
-    <input 
-      class="search-input"
-      placeholder="请输入公司"
-      placeholder-class="placeholder-style"
-      confirm-type="search"
-      bindinput="handleInput"
-      bindconfirm="handleSearch"
-      value="{{searchValue}}"
-    />
-    <icon 
-      wx:if="{{showClear}}"
-      class="clear-icon" 
-      type="clear" 
-      size="16"
-      bindtap="clearInput"
-    ></icon>
-  </view>
-  
-  <!-- 搜索按钮 -->
-  <view class="search-btn" bindtap="handleSearch">搜索</view>
+<view class="container">
+  <camera 
+    class="scanner-box"
+    device-position="back"
+    flash="off"
+    mode="scanCode"
+    scan-area="{{scanArea}}"
+    bindscancode="handleScan"
+    style="width:280px;height:280px">
+    
+    <view class="scan-line {{scanActive?'active':''}}"></view>
+  </camera>
 </view>
+
+
+
 <view class="mine_body">
-  <view class="createOrAdd">
-    <view class="addSign">
-      🦜
+    <view class="createOrAdd">
+      <view class="addSign">
+        🦜
+      </view>
+      加入企业
     </view>
-    xxx企业
-  </view>
-  <view class="createOrAdd">
-    <view class="addSign">
-      🦜
-    </view>
-    xxx企业
-  </view>
-  <view class="createOrAdd">
-    <view class="addSign">
-      🦜
-    </view>
-    xxx企业
-  </view>
 </view>
 
 <view class="createOffice">

@@ -1,0 +1,30 @@
+<!--pages/company/company.wxml-->
+<view class="body">
+  <view class="mine">
+    {{companyName}}：设置
+    <view class="tool_head">
+      <button bind:tap="goToClock">
+        <image src="/image/company/员工.svg" mode="" />下属
+      </button>
+      <button bind:tap="goToReason">
+        <image src="/image/approve/出差.svg" mode="" />出差
+      </button>
+      <button bind:tap="goToReason">
+        <image src="/image/approve/加班.svg" mode="" />加班
+      </button>
+      <button bind:tap="goToReason">
+        <image src="/image/approve/状态.svg" mode="" />状态
+      </button>
+    </view>
+  </view>
+  <view class="mine">
+    加入公司
+    <view class="tool_head" style="height: 350px;text-align: center;">
+      <image src="{{imageSrc}}" mode="" style="width: 350px; height: 350px" />
+    </view>
+  </view>
+  <view style="display: flex;">
+    <button style="color:red">转让公司!</button>
+    <button style="color:red">退出公司!</button>
+  </view>
+</view>
