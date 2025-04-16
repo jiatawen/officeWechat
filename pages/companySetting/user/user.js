@@ -5,15 +5,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-    users:[]
+    users: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    let that = this;
     wx.request({
-      url: 'https://cjw.sa1.tunnelfrp.com/',
+      url: 'https://cjw.sa1.tunnelfrp.com/position/getPositions',
+      method: 'GET',
+      header: {
+        token: getApp().globalData.token
+      },
+      success: function (e) {
+        const processedData = e.data.data.map(item  => {
+          // 安全取值与格式校验 
+          const formatTime = (timeStr) => {
+            if (!timeStr || typeof timeStr !== 'string') return '--:--'; // 空值兜底 
+            const parts = timeStr.split(':');  
+            return parts.length  >= 2 ? `${parts[0]}:${parts[1]}` : '--:--'; // 兼容非标准格式 
+          };
+         
+          return {
+            ...item, // 保留其他字段 
+            positionStartTime: formatTime(item.positionStartTime), 
+            positionEndTime: formatTime(item.positionEndTime) 
+          };
+        });
+         
+        that.setData({ 
+          users: processedData // 直接使用新数组 
+        });
+      }
     })
   },
 
@@ -64,5 +89,11 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+  setUser(e) {
+    console.log(e)
+    wx.navigateTo({
+      url: '/pages/companySetting/userSetting/userSetting?positionId='+e.target.dataset.positionid,
+    })
   }
 })

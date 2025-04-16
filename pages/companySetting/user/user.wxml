@@ -1,16 +1,18 @@
 <!--pages/companySetting/clock/clock.wxml-->
 <scroll-view class="background">
-  <view class="user">
-    <view class="name">姓名：Lorem ipsum</view>
-    <view class="message">
-      <view class="position">
-        岗位：BOSS
+  <block wx:for="{{users}}" wx:key="positionId">
+    <view class="user">
+      <view class="name">姓名：{{item.userName}}</view>
+      <view class="message">
+        <view class="position">
+          岗位：{{item.positionName}}
+        </view>
+        <view class="time">
+          <text>上班时间：{{item.positionStartTime}}</text>
+          <text>上班时间：{{item.positionEndTime}}</text>
+        </view>
+          <image src="/image/tools/设置.svg" bind:tap="setUser" data-positionId="{{item.positionId}}"/>
       </view>
-      <view class="time">
-        <text>上班时间：07：00</text>
-        <text>上班时间：07：00</text>
-      </view>
-        <image src="/image/tools/设置.svg"/>
     </view>
-  </view>
+  </block>
 </scroll-view>

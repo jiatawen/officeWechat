@@ -1,0 +1,70 @@
+<!--pages/companySetting/userSetting/userSetting.wxml-->
+<!-- 页面结构 -->
+<view class="page-container">
+  <!-- 岗位名称 -->
+  <view class="column-item">
+    <view class="form-item">
+      <text class="label">岗位名称：</text>
+      <input class="input-content" 
+             placeholder="请输入岗位名称"
+             value="{{positionName}}"
+             bindinput="onPositionNameChange" />
+    </view>
+  </view>
+ 
+  <!-- 时间设置模块 -->
+  <view class="column-item time-settings">
+    <picker name="start_time" mode="time" 
+            value="{{startTime}}" 
+            bindchange="onStartTimeChange">
+      <view class="form-item" hover-class="item-hover">
+        <text class="label">上班时间：</text>
+        <view class="picker-content">
+          <text class="picker-text">{{startTime || '09:00'}}</text>
+        </view>
+      </view>
+    </picker>
+ 
+    <picker name="end_time" mode="time" 
+            value="{{endTime}}" 
+            start="{{startTime}}"
+            bindchange="onEndTimeChange">
+      <view class="form-item" hover-class="item-hover">
+        <text class="label">下班时间：</text>
+        <view class="picker-content">
+          <text class="picker-text">{{endTime || '18:00'}}</text>
+        </view>
+      </view>
+    </picker>
+  </view>
+ 
+  <!-- 打卡设置 -->
+  <view class="column-item">
+    <view class="form-item">
+      <text class="label">启用打卡：</text>
+      <switch class="switch-control" 
+              checked="{{isNeedCheck}}" 
+              bindchange="onCheckChange" />
+    </view>
+  </view>
+ 
+  <!-- 上司选择 -->
+  <view class="column-item">
+    <picker name="leader" mode="selector" 
+            value="{{leaderIndex}}" 
+            range="{{leaderList}}"
+            bindchange="onLeaderChange">
+      <view class="form-item" hover-class="item-hover">
+        <text class="label">直属上司：</text>
+        <view class="picker-content">
+          <text class="picker-text">{{leaderList[leaderIndex] || '请选择'}}</text>
+        </view>
+      </view>
+    </picker>
+  </view>
+ 
+  <!-- 提交按钮 -->
+  <view class="submit-container">
+    <button class="sub_btn" bindtap="onSubmit">保 存 设 置</button>
+  </view>
+</view>

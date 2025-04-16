@@ -15,7 +15,8 @@
     "pages/emailSetting/emailSetting",
     "pages/registerCompany/registerCompany",
     "pages/company/company",
-    "pages/companySetting/user/user"
+    "pages/companySetting/user/user",
+    "pages/companySetting/userSetting/userSetting"
   ],
   "window": {
     "navigationBarTitleText": "万司通",

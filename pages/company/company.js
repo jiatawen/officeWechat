@@ -7,7 +7,8 @@ Page({
   data: {
     companyId:'',
     companyName:'',
-    imageSrc:''
+    imageSrc:'',
+    owner:false
   },
 
   /**
@@ -28,6 +29,21 @@ Page({
         const dataUrl = `data:image/png;base64,${base64Data}`;
         fs.writeFileSync(filePath,dataUrl.split(',')[1],'base64')
         that.setData({imageSrc:filePath})
+      }
+    })
+
+    //查看是否是公司的拥有者
+    wx.request({
+      url: 'https://cjw.sa1.tunnelfrp.com/company/checkCompany',
+      method:'GET',
+      header:{token:getApp().globalData.token},
+      success:function(e){
+        console.log(e)
+        if(e.data.data){
+          that.setData({
+            owner:true
+          })
+        }
       }
     })
   },
@@ -84,5 +100,9 @@ Page({
     wx.navigateTo({
       url: '/pages/companySetting/user/user',
     })
+  },
+  //退出公司
+  quitCompany(){
+    
   }
 })

@@ -15,12 +15,12 @@
 
 
 
-<view class="mine_body">
-    <view class="createOrAdd">
+<view class="mine_body" wx:if="{{showAdd}}">
+    <view class="createOrAdd" bind:tap="joinCompany" data-companyId="5">
       <view class="addSign">
         🦜
       </view>
-      加入企业
+      确认加入“{{companyName}}”
     </view>
 </view>
 

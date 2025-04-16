@@ -44,7 +44,7 @@ Page({
           that.setData({
             showAdd: false,
             companyName: e.data.data.companyName,
-            companyId: e.data.data.companyId
+            companyId: e.data.data.companyId,
           })
         } else if (e.data.code == -1) {
           that.setData({
