@@ -154,7 +154,7 @@ Page({
           wx.showToast({
             title: '欢迎加入'+that.data.companyName,
             icon:'success',
-            duration:3000,
+            duration:2000,
             mask:true
           });
           const pages = getCurrentPages();
@@ -169,7 +169,7 @@ Page({
               delta:1,
               success:()=>{}
             })
-          },3000)
+          },2000)
         }
       },
       fail:function(e){

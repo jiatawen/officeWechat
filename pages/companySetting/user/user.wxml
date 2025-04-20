@@ -2,7 +2,13 @@
 <scroll-view class="background">
   <block wx:for="{{users}}" wx:key="positionId">
     <view class="user">
-      <view class="name">姓名：{{item.userName}}</view>
+      <view class="name">
+        姓名：{{item.userName}}
+        <view>
+          电话：
+          <text selectable='true'>{{item.userPhone}}</text>
+        </view>
+      </view>
       <view class="message">
         <view class="position">
           岗位：{{item.positionName}}

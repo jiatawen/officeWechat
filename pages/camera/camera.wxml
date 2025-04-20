@@ -4,4 +4,6 @@
   <camera class="camera" device-position="front"  flash="off"></camera>
 </view>
 
-<button class="takePhoto" type="primary" bindtap="takePhoto">{{currentTime}}</button>
+<button wx:if="{{clock}}" class="takePhoto" type="primary" bindtap="takePhoto">{{currentTime}}</button>
+
+<button wx:if="{{!clock}}" style="background-color: gray;" class="takePhoto" type="primary">{{currentTime}}</button>

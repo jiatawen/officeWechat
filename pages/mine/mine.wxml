@@ -11,6 +11,7 @@
   <button class="mine_setting" style="margin-left:0px;" bind:tap="editProfile">编辑个人资料</button>
 </view>
 
+
 <view class="mine_body">
   <view class="createOrAdd" wx:if="{{!showAdd}}" bind:tap="toCompany">
     <view class="addSign">
@@ -23,5 +24,14 @@
       +
     </view>
     创建或加入企业
+  </view>
+</view>
+
+<view class="mine_body" style="margin-top: 350px;">
+  <view class="createOrAdd" bind:tap="updatePhoto">
+    <view class="addSign">
+      🔧
+    </view>
+    上传证件照
   </view>
 </view>

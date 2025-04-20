@@ -15,14 +15,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    let that = this;
+    
     this.setData({companyId:options.companyId,companyName:options.companyName})
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
+    let that = this;
     wx.request({
       url: 'https://cjw.sa1.tunnelfrp.com/company/getCompanyQC',
       method:"GET",
       header:{token:getApp().globalData.token},
       success:function(e){
-        console.log(e)
+
         const fs = wx.getFileSystemManager();
         const base64Data = e.data.data
         const filePath = `${wx.env.USER_DATA_PATH}/temp.png`
@@ -38,7 +52,7 @@ Page({
       method:'GET',
       header:{token:getApp().globalData.token},
       success:function(e){
-        console.log(e)
+
         if(e.data.data){
           that.setData({
             owner:true
@@ -46,20 +60,6 @@ Page({
         }
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
   },
 
   /**
@@ -103,6 +103,28 @@ Page({
   },
   //退出公司
   quitCompany(){
-    
+    let str = '确认退出？';
+    if(this.data.owner){
+      str = '确认解散？'
+    }
+    wx.showModal({
+      title: '确认窗',
+      content: str,
+      complete: (res) => {
+        if (res.cancel) {
+          
+        }
+        if (res.confirm) {
+          wx.request({
+            url: 'https://cjw.sa1.tunnelfrp.com/company/quitCompany',
+            method:'DELETE',
+            header:{token:getApp().globalData.token},
+            success:function(e){
+              wx.navigateBack();
+            }
+          })
+        }
+      }
+    })
   }
 })

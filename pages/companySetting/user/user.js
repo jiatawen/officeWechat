@@ -12,6 +12,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
     let that = this;
     wx.request({
       url: 'https://cjw.sa1.tunnelfrp.com/position/getPositions',
@@ -40,20 +54,6 @@ Page({
         });
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
   },
 
   /**
@@ -91,7 +91,6 @@ Page({
 
   },
   setUser(e) {
-    console.log(e)
     wx.navigateTo({
       url: '/pages/companySetting/userSetting/userSetting?positionId='+e.target.dataset.positionid,
     })

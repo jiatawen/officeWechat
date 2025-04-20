@@ -2,7 +2,8 @@ Page({
   data: {
     isAuth: false,
     faceImg: '',
-    currentTime:''
+    currentTime:'',
+    clock:true
   },
   onLoad() {
     const _this = this
@@ -99,17 +100,52 @@ Page({
         this.setData({
           faceImg: res.tempImagePath
         })
-        wx.uploadFile({
-          url: 'https://cjw.sa1.tunnelfrp.com/user/checkPhoto', 
-          filePath:res.tempImagePath,
-          formData:{fileName: 'photo.png'},
-          name:'face',
-          header:{token:getApp().globalData.token},
-          success:function(res){
-            console.log(res)
-          },
-          fail:function(err){console.log(err)}
-        })
+        this.updatePhoto();
+      }
+    })
+  },
+  updatePhoto(){
+    wx.showLoading({
+      title: '打卡中',
+      mask:true
+    })
+    wx.uploadFile({
+      header:{token:getApp().globalData.token},
+      filePath: this.data.faceImg,
+      name: 'file',
+      url: 'https://cjw.sa1.tunnelfrp.com/clock/checkPhoto',
+      success:function(e){
+        const response = JSON.parse(e.data)
+        wx.hideLoading()
+        if(response.code == 0){
+          wx.showToast({
+            title: '打卡成功',
+            icon:'success'
+          })
+          setTimeout(() => {
+            wx.navigateBack()
+          }, 2000);
+        }else{
+          wx.showToast({
+            title: '打卡失败',
+            icon:'error'
+          })
+        }
+      }
+    })
+  },
+  onShow(){
+    let that = this;
+    wx.request({
+      url: 'https://cjw.sa1.tunnelfrp.com/position/getClock',
+      method:'GET',
+      header:{token:getApp().globalData.token},
+      success:function(e){
+        if(e.data.code == -1){
+          that.setData({
+            clock:false
+          })
+        }
       }
     })
   }

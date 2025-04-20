@@ -31,28 +31,6 @@ Page({
         })
       }
     })
-    //获取企业信息
-    wx.request({
-      url: 'https://cjw.sa1.tunnelfrp.com/company/getCompany',
-      method: 'GET',
-      header: {
-        token: getApp().globalData.token
-      },
-      success: function (e) {
-        console.log(e)
-        if (e.data.code == 0) {
-          that.setData({
-            showAdd: false,
-            companyName: e.data.data.companyName,
-            companyId: e.data.data.companyId,
-          })
-        } else if (e.data.code == -1) {
-          that.setData({
-            showAdd: true
-          })
-        }
-      }
-    })
   },
   downloadImage() {
     let that = this;
@@ -80,7 +58,30 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    let that = this;
+    //获取企业信息
+    wx.request({
+      url: 'https://cjw.sa1.tunnelfrp.com/company/getCompany',
+      method: 'GET',
+      header: {
+        token: getApp().globalData.token
+      },
+      success: function (e) {
+        if (e.data.code == 0) {
+          that.setData({
+            showAdd: false,
+            companyName: e.data.data.companyName,
+            companyId: e.data.data.companyId,
+          })
+        } else if (e.data.code == -1) {
+          that.setData({
+            showAdd: true,
+            companyName:null,
+            companyId:null
+          })
+        }
+      }
+    })
   },
 
   /**
@@ -150,10 +151,34 @@ Page({
       url: '/pages/addOffice/addOffice',
     })
   },
-  toCompany(){
+  toCompany() {
     let that = this;
     wx.navigateTo({
-      url: '/pages/company/company?companyId='+this.data.companyId+'&companyName='+this.data.companyName,
+      url: '/pages/company/company?companyId=' + this.data.companyId + '&companyName=' + this.data.companyName,
+    })
+  },
+  updatePhoto(){
+    let that = this;
+    wx.chooseMedia({
+      count:1,
+      mediaType:'image',
+      sourceType:'album',
+      success:function(e){
+        that.uploadPhoto(e);
+      }
+    })
+  },
+  uploadPhoto(e){
+    wx.uploadFile({
+      filePath: e.tempFiles[0].tempFilePath,
+      name: 'file',
+      url: 'https://cjw.sa1.tunnelfrp.com/user/upUserPhoto',
+      header:{
+        token:getApp().globalData.token
+      },
+      success:function(e){
+        console.log(e)
+      }
     })
   }
 })

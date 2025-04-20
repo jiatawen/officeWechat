@@ -24,7 +24,7 @@
     </view>
   </view>
   <view style="display: flex;">
-    <button style="color:red" wx:if="{{owner}}">转让公司!</button>
+    <!-- <button style="color:red" wx:if="{{owner}}">转让公司!</button> -->
     <button style="color:red" bind:tap="quitCompany">
       <block wx:if="{{!owner}}">
         退出公司!
